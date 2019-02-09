@@ -1,0 +1,50 @@
+== Configuring files ==
+- list of config files
+	* All users: /etc/gitconfig
+	* specific user: ~/.gitconfig or ~/.config/git/config
+	* specific directory: .git/config
+- checking the settings on config files:
+	- using commnad `git config --list`
+	- getting help:
+		- `git help <verb>`
+		- `git <verb> --help`
+		- `man git-<verb>`
+== ignoring certain files ==
+- create .gitignore file with
+	* name/patterns of the files you want git to ignore
+
+== removal from git ==
+- delete the file from working directory:
+	- `git rm filename`
+- delete / untrack a file, 'unstage' but keep the file itself:
+	- `git rm --cached`
+
+== git mv ==
+- `git mv file_from file_to` rename file and still kept tracked by git
+
+== Viewing commit history ==
+- `git log` to display commit history
+- `git log -p -2` shows difference introduced in each commit, and -2 for limiting output in last 2 entries
+- `git log --stat` print out rough summary of commits
+- `git log --pretty=options` options available for different format
+- `git log --graph` displays ASCII character representations of the graph
+- Page 63 for more details
+- `git log -Sseach word` -S option will display things with the search word
+
+== Viewing differences ==
+- `git diff` to display differences, details on
+- https://stackoverflow.com/questions/3368590/show-diff-between-commits
+
+== Managing branches ==
+- `git branch branch_name` create new branch named 'branch_name'
+- `git checkout branch_name` change the HEAD to 'branch_name'
+- `git checkout -b branch_name` create new branch named 'branch_name,' and switch to it
+- `git branch -d branch_name` delete the branch called 'branch_name'
+
+= applying certain changes between branch without merging =
+- So do you mean that you want to move not particular changes, but entire content of a file or several files?
+Then you may use the following command to get the file content as it were in specific revision:
+  git show <commit_hash>:<relative_path_to_file>
+To apply the changes to the file you may do:
+  git show <commit_hash>:<relative_path_to_file> > <relative_path_to_file>
+- [how to move code between branches](https://intellij-support.jetbrains.com/hc/en-us/community/posts/207066035-How-to-move-code-between-branches-)
